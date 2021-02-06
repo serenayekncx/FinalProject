@@ -1,11 +1,9 @@
-﻿using Entities.Abstract;
-using Entities.Concrete;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
-namespace DataAccsess
+namespace Core.DataAccess
 {
     // GENERİC CONSTRAİNT
     //CLASS : REFERNS TİP OLABİLİR DEMEK 
