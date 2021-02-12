@@ -5,15 +5,16 @@ using System;
 
 namespace ConsoleUI
 {
-    public class Program
+    //SOLID
+    //Open Closed Principle
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            ProductTest();
-            //IoC
-            //CategoryTest();
             //Data Transformation Object
-
+            ProductTest();
+            //IoC 
+            //CategoryTest();
         }
 
         private static void CategoryTest()
@@ -29,11 +30,21 @@ namespace ConsoleUI
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
 
-            foreach (var product in productManager.GetProductDetails())
-            {
+            var result = productManager.GetProductDetails();
 
-                Console.WriteLine(product.ProductName+ "/" + product.CategoryName);
+            if (result.Success == true)
+            {
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine(product.ProductName + "/" + product.CategoryName);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+
+
         }
     }
 }
